@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Projets {% endblock %}
+
+{% block body %}
+
+<section class="articles">
+
+    {% for project in projects %}
+
+    <article>
+
+        <h2> {{ project.title }} </h2>
+
+        {# <div class="metadata">Ecrit le 06/12/2021 à 16h10 dans la catégorie Politique</div> #}
+
+        <div class="content">
+
+            <img src="{{ project.image }}" alt="">
+            {{ project.description | raw }}
+            <a href="{{ path('project_show', { 'id':project.id }) }}" class="btn btn-primary">lire la suite</a>
+
+        </div>
+
+    </article>
+
+    {% endfor %}
+
+</section>
+
+{% endblock %}
